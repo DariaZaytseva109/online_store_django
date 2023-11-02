@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>{% for cat in cats %}
+        <li>  {{ cat.name }}
+            <ul>{% for subcat in subcats %}
+                {% if subcat.category == cat %}
+                <li> <a href="">  {{ subcat.name }}  </a>
+                {% endif %}
+                {% endfor %}
+    </ul>
+    </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

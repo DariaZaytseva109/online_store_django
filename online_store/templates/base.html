@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ page_title }} </title>
+    {% for m in menu %}
+    <a href="{% url m.url_name %}"> {{ m.title }} {%if not forloop.last %}  |  {% endif %} </a>
+    {% endfor %}
+
+  </head>
+<h1> {{ page_title }}</h1>
+<body>
+{% block content %} {% endblock %}
+</body>
+</html>

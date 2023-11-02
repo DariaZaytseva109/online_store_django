@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>{% for p in products %}
+        <li> <a href=""> {{ p.name }} </a>
+            <p> Цена: {{ p.price }} руб. </p>
+            <hr>
+       {% endfor %}
+    </ul>
+{% endblock %}
