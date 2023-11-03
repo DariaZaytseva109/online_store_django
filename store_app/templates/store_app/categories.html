@@ -2,13 +2,19 @@
 {% block content %}
 <ul>{% for cat in cats %}
         <li>  {{ cat.name }}
+            <p>
             <ul>{% for subcat in subcats %}
                 {% if subcat.category == cat %}
-                <li> <a href="">  {{ subcat.name }}  </a>
+                <li> <a href="">  {{ subcat.name }}  </a> </p>
                 {% endif %}
                 {% endfor %}
-    </ul>
+    </ul><hr>
     </li>
     {% endfor %}
     </ul>
+
+{% for number in cats.paginator.page_range %}
+<a href="?page={{number}}"> {{ number }} </a>  |
+
+{% endfor %}
 {% endblock %}

@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<ul>{% for p in products %}
+<ul> {% for p in page %}
         <li> <a href=""> {{ p.name }} </a>
             <p> Цена: {{ p.price }} руб. </p>
             <hr>
        {% endfor %}
-    </ul>
+</ul>
+
+{% for number in page.paginator.page_range %}
+<a href="?page={{number}}"> {{ number }} </a>  |
+
+{% endfor %}
+
 {% endblock %}

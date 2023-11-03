@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseServerError
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
@@ -21,14 +22,21 @@ def main(request):
 def categories(request):
     cats = Category.objects.all()
     subcats = Subcategory.objects.all()
-    data = {'page_title': "Категории", 'menu': main_menu, 'cats': cats, 'subcats': subcats}
+    paginator = Paginator(cats, 2)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    data = {'page_title': "Категории", 'menu': main_menu, 'cats': page, 'subcats': subcats}
     return render(request, 'store_app/categories.html', context=data)
 
 
 def products(request):
     all_products = Product.objects.all()
-    data = {'page_title': "Продукты", 'menu': main_menu, 'products': all_products}
+    paginator = Paginator(all_products, 3)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    data = {'page_title': "Продукты", 'menu': main_menu, 'page': page}
     return render(request, 'store_app/products.html', context=data)
+
 
 def basket(request):
     data = {'page_title': "Корзина", 'menu': main_menu}
