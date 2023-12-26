@@ -1,9 +1,11 @@
+"""Импортируем необходимые классы"""
 from django.contrib import admin
 
 from .models import Product, Subcategory, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """Класс для продукта в админке"""
     list_display = ['id', 'name', 'price', 'subcategory']
     list_display_links = ['name']
     list_per_page = 10
@@ -11,6 +13,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class SubcategoryAdmin(admin.ModelAdmin):
+    """Класс для подкатегории в админке"""
     list_display = ['id', 'name', 'category']
     list_display_links = ['name']
     list_per_page = 10
@@ -18,6 +21,7 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """Класс для категории в админке"""
     list_display = ['id', 'name']
     list_display_links = ['name']
     list_per_page = 10
