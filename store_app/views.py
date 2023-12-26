@@ -1,7 +1,6 @@
+"""Views определяем"""
 from django.core.paginator import Paginator
-from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseServerError
-from django.shortcuts import render, get_object_or_404
-from django.template.loader import render_to_string
+from django.shortcuts import render
 
 from store_app.models import Category, Subcategory, Product
 
@@ -14,11 +13,13 @@ main_menu = [
 
 
 def main(request):
+    """Главная"""
     data = {'page_title': "Главная", 'menu': main_menu}
     return render(request, 'store_app/main.html', context=data)
 
 
 def categories(request):
+    """Категории"""
     cats = Category.objects.all()
     subcats = Subcategory.objects.all()
     paginator = Paginator(cats, 2)
@@ -29,6 +30,7 @@ def categories(request):
 
 
 def products(request):
+    """Список всех продуктов"""
     all_products = Product.objects.all()
     paginator = Paginator(all_products, 3)
     page_number = request.GET.get('page')
@@ -38,6 +40,7 @@ def products(request):
 
 
 def product_page(request, slug):
+    """Страница определенного продукта"""
     product = Product.objects.filter(slug=slug).first()
     page_title = product.name
     data = {'product': product, 'menu': main_menu, 'page_title': page_title}
@@ -50,5 +53,6 @@ def product_page(request, slug):
 
 
 def log_in(request):
+    """Вход"""
     data = {'page_title': "Вход", 'menu': main_menu}
     return render(request, 'store_app/log_in.html', context=data)
