@@ -16,11 +16,13 @@ class SubcategoryAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ['name']
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_display_links = ['name']
     list_per_page = 10
     search_fields = ['name']
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Subcategory, SubcategoryAdmin)

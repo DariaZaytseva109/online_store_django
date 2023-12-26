@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <ul> {% for p in page %}
-        <li> <a href=""> {{ p.name }} </a>
-            <p> Цена: {{ p.price }} руб. </p>
-            <hr>
-       {% endfor %}
+    <li> <a href="{% url 'product_page' p.slug %}"> {{ p.name }}  </a> </li>
+    <li> Цена: {{ p.price }} руб. </li>
+    <hr>
+    {% endfor %}
 </ul>
 
 {% for number in page.paginator.page_range %}

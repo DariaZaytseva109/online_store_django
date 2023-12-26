@@ -9,7 +9,6 @@ main_menu = [
     {'title': 'На главную', 'url_name': 'main'},
     {'title': 'Категории', 'url_name': 'categories'},
     {'title': 'Продукты', 'url_name': 'products'},
-    {'title': 'Корзина', 'url_name': 'basket'},
     {'title': 'Войти', 'url_name': 'log_in'}
     ]
 
@@ -38,9 +37,16 @@ def products(request):
     return render(request, 'store_app/products.html', context=data)
 
 
-def basket(request):
-    data = {'page_title': "Корзина", 'menu': main_menu}
-    return render(request, 'store_app/products.html', context=data)
+def product_page(request, slug):
+    product = Product.objects.filter(slug=slug).first()
+    page_title = product.name
+    data = {'product': product, 'menu': main_menu, 'page_title': page_title}
+    return render(request, 'store_app/product_page.html', context=data)
+
+
+# def basket(request):
+    #     data = {'page_title': "Корзина", 'menu': main_menu}
+    # return render(request, 'store_app/products.html', context=data)
 
 
 def log_in(request):
