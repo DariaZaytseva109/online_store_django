@@ -1,3 +1,4 @@
+"""URL маршруты"""
 from django.urls import path
 
 from store_app.views import main, categories, log_in, products, product_page

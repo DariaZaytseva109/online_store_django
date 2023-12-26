@@ -1,3 +1,5 @@
+"""Views определяем"""
+
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseServerError
 from django.shortcuts import render, get_object_or_404
