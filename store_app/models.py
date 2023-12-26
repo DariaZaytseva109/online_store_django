@@ -22,6 +22,7 @@ class Product(models.Model):
         return str(self.name)
 
     class Meta:
+        """Meta"""
         verbose_name = "Продукты"
         verbose_name_plural = "Продукты"
 
@@ -44,6 +45,7 @@ class Subcategory(models.Model):
         return str(self.name)
 
     class Meta:
+        """Meta"""
         verbose_name = "Подкатегории"
         verbose_name_plural = "Подкатегории"
 
@@ -62,5 +64,6 @@ class Category(models.Model):
         return str(self.name)
 
     class Meta:
+        """Meta"""
         verbose_name = "Категории"
         verbose_name_plural = "Категории"
