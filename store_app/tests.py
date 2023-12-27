@@ -47,6 +47,12 @@ class ProductTestCase(TestCase):
         cat = Category.objects.get(name='Фрукты')
         self.assertEqual(subcat.category, cat)
 
+    def test_all_products_page(self):
+        """testing list of products"""
+        all_products = Product.objects.all()
+        prod = Product.objects.get(name='Апельсины крупные Египет')
+        self.assertIn(prod, all_products)
+
     def test_product_page(self):
         """testing page of a product"""
         slug = 'korovka'
