@@ -6,6 +6,8 @@ from store_app.models import Product, Subcategory, Category
 
 
 class ProductTestCase(TestCase):
+    """тестовый класс"""
+    # pylint: disable=no-member
     def setUp(self):
         """create test models"""
         cat_1 = Category.objects.create(
@@ -41,6 +43,6 @@ class ProductTestCase(TestCase):
 
     def test_categories(self):
         """testing created categories"""
-        subcat = Subcategory.objects.filter(name='Апельсины')
+        subcat = Subcategory.objects.filter(name='Апельсины').first()
         cat = Category.objects.filter(name='Фрукты')
         self.assertEqual(subcat.category, cat)
