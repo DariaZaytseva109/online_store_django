@@ -8,11 +8,11 @@ from store_app.models import Product, Subcategory, Category
 class ProductTestCase(TestCase):
     def setUp(self):
         """create test models"""
-        cat_1 = Subcategory.objects.create(
+        cat_1 = Category.objects.create(
             name="Сладости",
             slug="sladosty",
         )
-        cat_2 = Subcategory.objects.create(
+        cat_2 = Category.objects.create(
             name="Фрукты",
             slug="frukty",
         )
