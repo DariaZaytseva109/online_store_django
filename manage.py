@@ -2,6 +2,7 @@
 import os
 import sys
 
+# pylint: disable=import-outside-toplevel
 
 def main():
     """Run administrative tasks."""
