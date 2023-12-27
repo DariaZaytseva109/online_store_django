@@ -4,6 +4,7 @@ from django.db import models
 
 class Product(models.Model):
     """Модель продукта"""
+    # pylint: disable=no-member
     name = models.CharField(
         max_length=50,
         unique=True,
@@ -29,6 +30,7 @@ class Product(models.Model):
 
 class Subcategory(models.Model):
     """Модель подкатегории"""
+    # pylint: disable=no-member
     name = models.CharField(
         max_length=30,
         unique=True,
@@ -52,6 +54,7 @@ class Subcategory(models.Model):
 
 class Category(models.Model):
     """Модель категории"""
+    # pylint: disable=no-member
     name = models.CharField(
         max_length=30,
         unique=True,
