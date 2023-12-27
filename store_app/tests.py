@@ -46,3 +46,9 @@ class ProductTestCase(TestCase):
         subcat = Subcategory.objects.get(name='Апельсины')
         cat = Category.objects.get(name='Фрукты')
         self.assertEqual(subcat.category, cat)
+
+    def test_product_page(self):
+        """testing page of a product"""
+        slug = 'korovka'
+        product = Product.objects.get(slug=slug)
+        self.assertIsInstance(product, Product)
