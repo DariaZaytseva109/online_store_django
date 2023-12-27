@@ -20,6 +20,7 @@ def main(request):
 
 def categories(request):
     """Категории"""
+    # pylint: disable=no-member
     cats = Category.objects.all()
     subcats = Subcategory.objects.all()
     paginator = Paginator(cats, 2)
@@ -31,6 +32,7 @@ def categories(request):
 
 def products(request):
     """Список всех продуктов"""
+    # pylint: disable=no-member
     all_products = Product.objects.all()
     paginator = Paginator(all_products, 3)
     page_number = request.GET.get('page')
@@ -41,6 +43,7 @@ def products(request):
 
 def product_page(request, slug):
     """Страница определенного продукта"""
+    # pylint: disable=no-member
     product = Product.objects.filter(slug=slug).first()
     page_title = product.name
     data = {'product': product, 'menu': main_menu, 'page_title': page_title}
