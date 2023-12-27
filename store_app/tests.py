@@ -44,5 +44,5 @@ class ProductTestCase(TestCase):
     def test_categories(self):
         """testing created categories"""
         subcat = Subcategory.objects.get(name='Апельсины')
-        cat = Category.objects.filter(name='Фрукты')
+        cat = Category.objects.get(name='Фрукты')
         self.assertEqual(subcat.category, cat)

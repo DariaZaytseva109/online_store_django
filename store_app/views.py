@@ -53,7 +53,7 @@ def products(request):
 def product_page(request, slug):
     """Страница определенного продукта"""
     # pylint: disable=no-member
-    product = Product.objects.filter(slug=slug).first()
+    product = Product.objects.get(slug=slug)
     page_title = product.name
     data = {
         'product': product,
