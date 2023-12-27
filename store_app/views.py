@@ -26,7 +26,12 @@ def categories(request):
     paginator = Paginator(cats, 2)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
-    data = {'page_title': "Категории", 'menu': main_menu, 'cats': page, 'subcats': subcats}
+    data = {
+        'page_title': "Категории",
+        'menu': main_menu,
+        'cats': page,
+        'subcats': subcats
+    }
     return render(request, 'store_app/categories.html', context=data)
 
 
@@ -37,7 +42,11 @@ def products(request):
     paginator = Paginator(all_products, 3)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
-    data = {'page_title': "Продукты", 'menu': main_menu, 'page': page}
+    data = {
+        'page_title': "Продукты",
+        'menu': main_menu,
+        'page': page
+    }
     return render(request, 'store_app/products.html', context=data)
 
 
@@ -46,7 +55,11 @@ def product_page(request, slug):
     # pylint: disable=no-member
     product = Product.objects.filter(slug=slug).first()
     page_title = product.name
-    data = {'product': product, 'menu': main_menu, 'page_title': page_title}
+    data = {
+        'product': product,
+        'menu': main_menu,
+        'page_title': page_title
+    }
     return render(request, 'store_app/product_page.html', context=data)
 
 
